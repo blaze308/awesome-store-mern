@@ -1,19 +1,30 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
-  const location = useLocation();
-  const { state } = location;
-  if (!state || !state.title) {
-    // Handle the case where 'title' is not available
-    return <div>Product not found or missing information</div>;
-  }
-  const { title, image, price, _id, desc, category, createdAt } = state;
+  const { productId } = useParams();
+  const [product, setProduct] = useState({});
+  var url = `http://localhost:4000/api/products/${productId}`;
+
+  const fetchPoduct = () => {
+    return fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchPoduct();
+  }, []);
+
   return (
     <div>
-      <h3>{title}</h3>
+      <h4>{product.title}</h4>
     </div>
   );
 };
 
-export default React.memo(ProductDetail);
+export default ProductDetail;

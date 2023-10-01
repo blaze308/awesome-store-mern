@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./productCard";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-
   const url = "http://localhost:4000/api/products";
+  const [products, setProducts] = useState([]);
 
   const fetchPoducts = () => {
     return fetch(url)

@@ -7,15 +7,17 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleProductClick = () => {
-    navigate(`/product/${_id}`, {
-      state: { title, image, price, _id, desc, category, createdAt },
-    });
+    navigate(`/products/${_id}`);
+  };
+
+  const sendData = () => {
+    navigate(`/products/${_id}`, { state: { title, image, price, desc } });
   };
   return (
     <div className="">
       <div className="relative m-0 mt-5 w-80 flex max-w-sm  flex-col overflow-hidden rounded-none border border-gray-100 bg-white shadow-md">
         <a
-          href="#"
+          href=""
           className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
         >
           <img
@@ -35,7 +37,7 @@ const ProductCard = ({ product }) => {
         </a>
 
         <div className="mt-4 px-5 pb-5">
-          <a href="#">
+          <a href="">
             <h5 className="text-xl tracking-tight text-slate-900 line-clamp-1">
               {title}
             </h5>
