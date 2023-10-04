@@ -20,7 +20,7 @@ const ProductsPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="m-3 grid grid-cols-2 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="m-4 mr-2 grid grid-cols-2 sm:grid-cols-2 sm:gap-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-0">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}

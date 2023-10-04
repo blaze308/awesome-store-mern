@@ -5,26 +5,48 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
 
-  image: {
-    type: String,
-    required: true,
-  },
-  desc: {
-    type: String,
-    required: true,
-  },
   price: {
     type: Number,
+    required: true,
+  },
+
+  discountPercentage: {
+    type: Number,
+    required: true,
+  },
+
+  rating: {
+    type: Number,
+    required: true,
+  },
+
+  stock: {
+    type: Number,
+    required: true,
+  },
+
+  brand: {
+    type: String,
     required: true,
   },
   category: {
     type: String,
     required: true,
   },
-  createdAt: {
+
+  thumbnail: {
     type: String,
-    default: Date.now(),
+    required: true,
+  },
+
+  images: {
+    type: Array,
+    required: true,
   },
 });
 
